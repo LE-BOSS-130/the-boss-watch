@@ -19,10 +19,10 @@ npm run build && npm run start
 npm run dist:win
 ```
 
-Published to (not the Desktop):
+Published to OneDrive Documents (not the Desktop):
 
 ```text
-%USERPROFILE%\Documents\THE BOSS Watch\Installers\
+%USERPROFILE%\OneDrive\Documents\THE BOSS Watch\Installers\
 ```
 
 The desktop app starts its own embedded Next.js server on `127.0.0.1:3847` and opens the UI automatically. No separate terminal is required after install.

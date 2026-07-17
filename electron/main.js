@@ -229,7 +229,7 @@ async function boot() {
     console.error(err);
     await mainWindow.loadURL(
       loadingHtml(
-        `Could not start the app server.<br/><br/>${String(err.message || err)}<br/><br/>Try running <code>start-the-boss-watch.bat</code> from the project folder, or reinstall from Documents\\THE BOSS Watch\\Installers.`
+        `Could not start the app server.<br/><br/>${String(err.message || err)}<br/><br/>Try running <code>start-the-boss-watch.bat</code> from the project folder, or reinstall from OneDrive\\Documents\\THE BOSS Watch\\Installers.`
       )
     );
     dialog.showErrorBox(

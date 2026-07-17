@@ -1,33 +1,39 @@
 /**
- * Copy built installers into Documents\THE BOSS Watch\Installers
- * (same pattern as THE BOSS Agent). Never drop builds on the Desktop.
+ * Copy built installers into OneDrive Documents\THE BOSS Watch\Installers
+ * (never the Desktop).
  */
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
-import os from "os";
+import { getBossWatchDocsRoot, getDocumentsRoot } from "./docs-path.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, "..");
 const releaseDir = path.join(root, "release");
-const docsRoot = path.join(os.homedir(), "Documents", "THE BOSS Watch");
+const docsRoot = getBossWatchDocsRoot();
 const installersDir = path.join(docsRoot, "Installers");
 
 fs.mkdirSync(installersDir, { recursive: true });
 fs.mkdirSync(path.join(docsRoot, "Data"), { recursive: true });
 
 const readme = path.join(docsRoot, "README.txt");
-if (!fs.existsSync(readme)) {
-  fs.writeFileSync(
-    readme,
-    `THE BOSS Watch
+fs.writeFileSync(
+  readme,
+  `THE BOSS Watch
 ================
 
 Shared responsibility assistant — one group AI for families, crews, and teams.
 
+Location (this folder)
+----------------------
+${docsRoot}
+
+Documents root used:
+${getDocumentsRoot()}
+
 Folders
 -------
-Installers\\   Windows setup EXEs (this is where new builds go)
+Installers\\   Windows setup EXEs (new builds go here)
 Data\\         Optional local notes / exports
 
 How to install
@@ -48,16 +54,17 @@ Project source
   ${root}
   https://github.com/LE-BOSS-130/the-boss-watch
 `,
-    "utf8"
-  );
-}
+  "utf8"
+);
 
 if (!fs.existsSync(releaseDir)) {
   console.error("No release/ folder — run electron-builder first.");
   process.exit(1);
 }
 
-const files = fs.readdirSync(releaseDir).filter((f) => f.endsWith(".exe") && !f.includes("uninstaller"));
+const files = fs
+  .readdirSync(releaseDir)
+  .filter((f) => f.endsWith(".exe") && !f.includes("uninstaller"));
 if (!files.length) {
   console.error("No installer .exe found in release/");
   process.exit(1);
@@ -70,7 +77,6 @@ for (const f of files) {
   console.log("Published:", dest);
 }
 
-// Write latest pointer
 const latest = files.sort().at(-1);
 fs.writeFileSync(
   path.join(installersDir, "latest.json"),
@@ -79,6 +85,8 @@ fs.writeFileSync(
       product: "THE BOSS Watch",
       version: latest.match(/(\d+\.\d+\.\d+)/)?.[1] || "0.1.0",
       file: latest,
+      documentsRoot: getDocumentsRoot(),
+      path: path.join(installersDir, latest),
       updatedAt: new Date().toISOString(),
     },
     null,
@@ -87,5 +95,6 @@ fs.writeFileSync(
   "utf8"
 );
 
-console.log("\nInstallers live in:");
+console.log("\nDocuments root:", getDocumentsRoot());
+console.log("Installers live in:");
 console.log(" ", installersDir);

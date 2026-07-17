@@ -91,13 +91,13 @@ iPhone / Android / Windows / Web
 npm run dist:win
 ```
 
-Installers are **never** left on the Desktop. Builds publish to:
+Installers are **never** left on the Desktop. Builds publish to OneDrive Documents:
 
 ```text
-Documents\THE BOSS Watch\Installers\THE-BOSS-Watch-Setup-*.exe
+OneDrive\Documents\THE BOSS Watch\Installers\THE-BOSS-Watch-Setup-*.exe
 ```
 
-(same layout as THE BOSS Agent under Documents).
+(full path example: `C:\Users\<you>\OneDrive\Documents\THE BOSS Watch\Installers`)
 
 The desktop app embeds its own local server (no separate terminal required). Data lives under the app’s user data folder; a seeded demo DB is copied on first run.
 
