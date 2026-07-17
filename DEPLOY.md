@@ -17,18 +17,22 @@ npm run build && npm run start
 
 ```bash
 npm run dist:win
-# → release/THE-BOSS-Watch-Setup-0.1.0.exe
 ```
 
-The desktop shell opens THE BOSS Watch UI. By default it loads `http://localhost:3000`.  
-To point the desktop app at a hosted backend:
+Published to (not the Desktop):
+
+```text
+%USERPROFILE%\Documents\THE BOSS Watch\Installers\
+```
+
+The desktop app starts its own embedded Next.js server on `127.0.0.1:3847` and opens the UI automatically. No separate terminal is required after install.
+
+Optional remote backend:
 
 ```bat
 set BOSS_WATCH_URL=https://your-app.vercel.app
 "THE BOSS Watch.exe"
 ```
-
-Or set `BOSS_WATCH_URL` before `npm run desktop`.
 
 ### Private network with Tailscale
 

@@ -1,7 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // Self-contained Node server for the desktop app (Electron)
+  output: "standalone",
 };
 
 export default nextConfig;

@@ -88,13 +88,20 @@ iPhone / Android / Windows / Web
 ## Windows installer
 
 ```bash
-npm run build
 npm run dist:win
 ```
 
-Installer output: `release/THE-BOSS-Watch-Setup-*.exe` (NSIS).
+Installers are **never** left on the Desktop. Builds publish to:
 
-The desktop app opens THE BOSS Watch UI in a native window. Point it at a hosted URL with:
+```text
+Documents\THE BOSS Watch\Installers\THE-BOSS-Watch-Setup-*.exe
+```
+
+(same layout as THE BOSS Agent under Documents).
+
+The desktop app embeds its own local server (no separate terminal required). Data lives under the app’s user data folder; a seeded demo DB is copied on first run.
+
+Optional: point the desktop shell at a remote host:
 
 ```bash
 set BOSS_WATCH_URL=https://your-deployment.vercel.app

@@ -6,18 +6,20 @@
   "author": "LE-BOSS-130",
   "main": "electron/main.js",
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -H 127.0.0.1 -p 3847",
     "build": "prisma generate && next build",
-    "start": "next start",
+    "start": "next start -H 127.0.0.1 -p 3847",
     "lint": "eslint",
     "db:push": "prisma db push",
     "db:seed": "node scripts/seed.mjs",
     "db:studio": "prisma studio",
     "postinstall": "prisma generate",
     "desktop": "electron .",
-    "desktop:dev": "concurrently -k \"next dev\" \"wait-on http://localhost:3000 && cross-env BOSS_WATCH_URL=http://localhost:3000 electron .\"",
-    "dist:win": "npm run build && electron-builder --win nsis",
-    "dist:dir": "npm run build && electron-builder --win --dir"
+    "desktop:dev": "concurrently -k \"npm run dev\" \"wait-on http://127.0.0.1:3847 && cross-env BOSS_WATCH_URL=http://127.0.0.1:3847 electron .\"",
+    "prepare:desktop": "node scripts/prepare-desktop.mjs",
+    "dist:win": "npm run build && npm run prepare:desktop && electron-builder --win nsis && node scripts/publish-installer.mjs",
+    "dist:dir": "npm run build && npm run prepare:desktop && electron-builder --win --dir",
+    "publish:installer": "node scripts/publish-installer.mjs"
   },
   "dependencies": {
     "@prisma/client": "^5.22.0",
@@ -56,6 +58,7 @@
     "appId": "app.thebosswatch.desktop",
     "productName": "THE BOSS Watch",
     "copyright": "Copyright © 2026 THE BOSS Watch",
+    "afterPack": "./scripts/after-pack.cjs",
     "directories": {
       "output": "release"
     },
@@ -63,7 +66,17 @@
       "electron/**/*",
       "package.json"
     ],
-    "extraResources": [],
+    "extraResources": [
+      {
+        "from": "desktop-resources/server",
+        "to": "server",
+        "filter": ["**/*"]
+      },
+      {
+        "from": "desktop-resources/template.db",
+        "to": "template.db"
+      }
+    ],
     "win": {
       "target": [
         {

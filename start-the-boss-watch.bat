@@ -11,7 +11,8 @@ if not exist "prisma\dev.db" (
   call npm run db:seed
 )
 echo.
-echo Starting THE BOSS Watch at http://localhost:3000
+echo Starting THE BOSS Watch at http://127.0.0.1:3847
 echo Demo logins: joe@bosswatch.local / password123
 echo.
+start "" "http://127.0.0.1:3847"
 call npm run dev
