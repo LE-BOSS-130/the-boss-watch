@@ -76,7 +76,7 @@ npx prisma db push
 
 ## GitHub
 
-Repo: https://github.com/LE-BOSS-130/pact  
+Repo: https://github.com/LE-BOSS-130/the-boss-watch  
 (Product name: **THE BOSS Watch**)
 
 ```bash
