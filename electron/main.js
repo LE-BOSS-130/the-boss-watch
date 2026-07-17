@@ -24,9 +24,13 @@ function userDataDir() {
 }
 
 function databaseUrl() {
-  // Prisma SQLite absolute path on Windows: file:C:/...
+  // Prisma SQLite absolute path — use file:///C:/... on Windows so it
+  // never falls back to a relative ./dev.db inside Program Files.
   const dbFile = path.join(userDataDir(), "boss-watch.db");
   const normalized = dbFile.replace(/\\/g, "/");
+  if (/^[A-Za-z]:\//.test(normalized)) {
+    return `file:///${normalized}`;
+  }
   return `file:${normalized}`;
 }
 

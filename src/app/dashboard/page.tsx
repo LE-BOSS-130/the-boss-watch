@@ -94,7 +94,9 @@ export default function DashboardPage() {
           <h1 className="mt-1 text-2xl font-semibold">
             Hi{session?.user?.name ? `, ${session.user.name}` : ""}
           </h1>
-          <p className="text-sm text-zinc-400">Your shared task groups</p>
+          <p className="text-sm text-zinc-400">
+            Signed in as {session?.user?.email} · Your shared task groups
+          </p>
         </div>
         <Button variant="ghost" onClick={() => signOut({ callbackUrl: "/" })}>
           <LogOut className="h-4 w-4" />

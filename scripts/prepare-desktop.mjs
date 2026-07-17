@@ -42,6 +42,16 @@ if (fs.existsSync(path.join(nested, "server.js")) && !fs.existsSync(path.join(ou
   fs.rmSync(nested, { recursive: true, force: true });
 }
 
+// Never ship a .env that points at dev paths / wrong NEXTAUTH_URL —
+// Electron injects DATABASE_URL + AUTH_* at runtime into userData.
+for (const envName of [".env", ".env.local", ".env.production"]) {
+  const envPath = path.join(outServer, envName);
+  if (fs.existsSync(envPath)) {
+    fs.unlinkSync(envPath);
+    console.log("Removed packaged", envName);
+  }
+}
+
 const destStatic = path.join(outServer, ".next", "static");
 if (fs.existsSync(staticDir)) {
   copyDir(staticDir, destStatic);

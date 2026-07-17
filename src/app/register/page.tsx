@@ -30,17 +30,22 @@ export default function RegisterPage() {
       return;
     }
     const sign = await signIn("credentials", {
-      email,
+      email: email.trim().toLowerCase(),
       password,
       redirect: false,
     });
     setLoading(false);
     if (sign?.error) {
-      setError("Account created — please sign in");
+      setError("Account created — please sign in with the same email and password.");
       router.push("/login");
       return;
     }
-    router.push("/dashboard");
+    // Land on starter group if one was created
+    if (data.group?.id) {
+      router.push(`/groups/${data.group.id}`);
+    } else {
+      router.push("/dashboard");
+    }
     router.refresh();
   }
 
