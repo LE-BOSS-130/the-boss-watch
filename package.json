@@ -1,8 +1,8 @@
 {
-  "name": "pact",
+  "name": "the-boss-watch",
   "version": "0.1.0",
   "private": true,
-  "description": "Shared responsibility assistant — coordinate people, tasks, and one group AI",
+  "description": "THE BOSS Watch — shared responsibility assistant that coordinates people, tasks, and one group AI",
   "author": "LE-BOSS-130",
   "main": "electron/main.js",
   "scripts": {
@@ -53,9 +53,9 @@
     "wait-on": "^9.0.10"
   },
   "build": {
-    "appId": "app.pact.desktop",
-    "productName": "Pact",
-    "copyright": "Copyright © 2026 Pact",
+    "appId": "app.thebosswatch.desktop",
+    "productName": "THE BOSS Watch",
+    "copyright": "Copyright © 2026 THE BOSS Watch",
     "directories": {
       "output": "release"
     },
@@ -71,14 +71,14 @@
           "arch": ["x64"]
         }
       ],
-      "artifactName": "Pact-Setup-${version}.${ext}"
+      "artifactName": "THE-BOSS-Watch-Setup-${version}.${ext}"
     },
     "nsis": {
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
       "createDesktopShortcut": true,
       "createStartMenuShortcut": true,
-      "shortcutName": "Pact",
+      "shortcutName": "THE BOSS Watch",
       "installerLanguages": ["en_US"],
       "language": "1033"
     }

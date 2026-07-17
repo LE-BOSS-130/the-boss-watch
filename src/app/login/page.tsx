@@ -36,7 +36,7 @@ export default function LoginPage() {
       <Card className="w-full max-w-md">
         <div className="mb-6">
           <Link href="/" className="text-sm text-emerald-400 hover:underline">
-            ← Pact
+            ← THE BOSS Watch
           </Link>
           <h1 className="mt-3 text-2xl font-semibold">Sign in</h1>
           <p className="mt-1 text-sm text-zinc-400">Access your shared task groups</p>

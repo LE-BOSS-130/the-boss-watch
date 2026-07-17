@@ -71,7 +71,7 @@ export async function buildGroupContext(groupId: string): Promise<GroupContext |
 }
 
 function systemPrompt(ctx: GroupContext, userName: string): string {
-  return `You are Pact — the shared group AI coordinator for "${ctx.groupName}".
+  return `You are THE BOSS Watch — the shared group AI coordinator for "${ctx.groupName}".
 You are ONE persistent assistant for the whole group, not a private chatbot.
 Current speaker: ${userName}.
 Current time: ${new Date().toISOString()}.
@@ -108,7 +108,7 @@ ${ctx.rules.length ? ctx.rules.map((r) => `- ${r}`).join("\n") : "(none)"}
 
 When the user wants to create or change tasks, respond with helpful natural language AND include a machine-readable JSON block at the end:
 
-\`\`\`pact-actions
+\`\`\`boss-actions
 { "actions": [ ... ] }
 \`\`\`
 
@@ -119,11 +119,11 @@ Supported actions:
 4. escalate_task: { "type":"escalate_task", "taskId":"..." }
 5. add_rule: { "type":"add_rule", "name":"...", "ruleText":"..." }
 
-If no structural change is needed, omit the pact-actions block.
+If no structural change is needed, omit the boss-actions block.
 Be concise, practical, and group-aware. Prefer suggesting backups and confirmations over nagging.`;
 }
 
-export type PactAction =
+export type BossAction =
   | {
       type: "create_task";
       title: string;
@@ -141,8 +141,8 @@ export type PactAction =
   | { type: "escalate_task"; taskId: string }
   | { type: "add_rule"; name: string; ruleText: string };
 
-export function parsePactActions(text: string): { clean: string; actions: PactAction[] } {
-  const match = text.match(/```pact-actions\s*([\s\S]*?)```/i);
+export function parseBossActions(text: string): { clean: string; actions: BossAction[] } {
+  const match = text.match(/```(?:boss-actions|pact-actions)\s*([\s\S]*?)```/i);
   if (!match) return { clean: text.trim(), actions: [] };
   try {
     const json = JSON.parse(match[1].trim());
@@ -154,10 +154,10 @@ export function parsePactActions(text: string): { clean: string; actions: PactAc
   }
 }
 
-export async function applyPactActions(
+export async function applyBossActions(
   groupId: string,
   userId: string,
-  actions: PactAction[]
+  actions: BossAction[]
 ): Promise<string[]> {
   const results: string[] = [];
   const members = await prisma.groupMember.findMany({
@@ -317,8 +317,8 @@ export async function chatWithGroupAI(opts: {
     }
   }
 
-  const { clean, actions } = parsePactActions(raw);
-  const applied = await applyPactActions(opts.groupId, opts.userId, actions);
+  const { clean, actions } = parseBossActions(raw);
+  const applied = await applyBossActions(opts.groupId, opts.userId, actions);
   const reply =
     applied.length > 0
       ? `${clean}\n\n_Applied: ${applied.join("; ")}_`
@@ -379,7 +379,7 @@ function localFallback(message: string, ctx: GroupContext, userName: string): st
     const primaryName =
       createMatch?.[1] && createMatch?.[2] ? createMatch[1].trim() : null;
 
-    return `I'll create that as a coordinated task for the group.\n\n\`\`\`pact-actions\n${JSON.stringify(
+    return `I'll create that as a coordinated task for the group.\n\n\`\`\`boss-actions\n${JSON.stringify(
       {
         actions: [
           {
@@ -397,5 +397,5 @@ function localFallback(message: string, ctx: GroupContext, userName: string): st
     )}\n\`\`\``;
   }
 
-  return `I'm Pact, your group coordinator for ${ctx.groupName}. I can create shared tasks, assign primaries/backups, escalate, and brief the team.\n\nTry:\n• "Every Friday remind whoever is home to put recycling out before 7"\n• "Who is picking up Emma?"\n• "Daily briefing"\n\n${ctx.tasks.filter((t) => t.status !== "COMPLETED").length} open tasks · ${ctx.members.length} members.\n\n(Set XAI_API_KEY for full natural-language intelligence.)`;
+  return `I'm THE BOSS Watch, your group coordinator for ${ctx.groupName}. I can create shared tasks, assign primaries/backups, escalate, and brief the team.\n\nTry:\n• "Every Friday remind whoever is home to put recycling out before 7"\n• "Who is picking up Emma?"\n• "Daily briefing"\n\n${ctx.tasks.filter((t) => t.status !== "COMPLETED").length} open tasks · ${ctx.members.length} members.\n\n(Set XAI_API_KEY for full natural-language intelligence.)`;
 }

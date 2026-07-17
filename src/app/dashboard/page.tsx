@@ -89,7 +89,7 @@ export default function DashboardPage() {
       <header className="mb-8 flex flex-wrap items-center justify-between gap-4">
         <div>
           <Link href="/" className="text-xs font-medium text-emerald-400">
-            Pact
+            THE BOSS Watch
           </Link>
           <h1 className="mt-1 text-2xl font-semibold">
             Hi{session?.user?.name ? `, ${session.user.name}` : ""}

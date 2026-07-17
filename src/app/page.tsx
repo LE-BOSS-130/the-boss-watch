@@ -15,10 +15,10 @@ export default function HomePage() {
     <div className="flex flex-1 flex-col">
       <header className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-6">
         <div className="flex items-center gap-2 font-semibold tracking-tight">
-          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-500/15 text-emerald-400 ring-1 ring-emerald-500/30">
-            P
+          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-500/15 text-emerald-400 ring-1 ring-emerald-500/30 text-xs font-bold">
+            BW
           </span>
-          Pact
+          THE BOSS Watch
         </div>
         <nav className="flex items-center gap-3 text-sm">
           <Link href="/login" className="text-zinc-400 hover:text-zinc-100">
@@ -42,7 +42,7 @@ export default function HomePage() {
             Reminders that coordinate people — not just nag phones.
           </h1>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-zinc-400">
-            Pact is a cross-platform shared responsibility assistant. Families, crews, and teams
+            THE BOSS Watch is a cross-platform shared responsibility assistant. Families, crews, and teams
             manage obligations together through one persistent group AI that assigns, escalates,
             and follows up until work is truly done.
           </p>
@@ -105,7 +105,7 @@ export default function HomePage() {
               <span className="text-zinc-200">Matthew</span> is backup. Bins out before 7:00 a.m.
             </p>
             <p className="rounded-xl border border-amber-500/20 bg-amber-500/10 px-4 py-3 text-amber-100">
-              Joe hasn’t confirmed. Phone offline. Matthew is home and available — Pact asks him
+              Joe hasn’t confirmed. Phone offline. Matthew is home and available — THE BOSS Watch asks him
               to take it.
             </p>
             <p className="text-zinc-500">
@@ -128,7 +128,7 @@ export default function HomePage() {
       </main>
 
       <footer className="border-t border-zinc-900 py-8 text-center text-xs text-zinc-600">
-        Pact · Shared responsibility assistant · Built with Next.js + SpaceXAI
+        THE BOSS Watch · Shared responsibility assistant · Built with Next.js + SpaceXAI
       </footer>
     </div>
   );

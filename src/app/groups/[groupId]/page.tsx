@@ -376,7 +376,7 @@ export default function GroupPage() {
                   }`}
                 >
                   <p className="mb-1 text-[10px] font-medium uppercase tracking-wide opacity-60">
-                    {m.role === "user" ? m.user?.name || "Member" : "Pact AI"}
+                    {m.role === "user" ? m.user?.name || "Member" : "BOSS Watch AI"}
                   </p>
                   <div className="whitespace-pre-wrap">{m.content}</div>
                 </div>

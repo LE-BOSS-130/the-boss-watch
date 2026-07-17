@@ -14,13 +14,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Pact — Shared responsibility assistant",
+  title: "THE BOSS Watch — Shared responsibility assistant",
   description:
     "Coordinate people, reminders, and obligations with one shared group AI. Commitments, escalation, and cross-device sync.",
-  applicationName: "Pact",
+  applicationName: "THE BOSS Watch",
   appleWebApp: {
     capable: true,
-    title: "Pact",
+    title: "THE BOSS Watch",
     statusBarStyle: "black-translucent",
   },
   manifest: "/manifest.webmanifest",

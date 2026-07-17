@@ -1,8 +1,8 @@
-# Pact — Shared Responsibility Assistant
+# THE BOSS Watch — Shared Responsibility Assistant
 
 > A cross-platform **shared responsibility assistant** that coordinates people, reminders, tasks, and devices through **one persistent group AI**.
 
-Pact is more than a reminder app. Families, crews, coworkers, and caregiving teams share **Task Groups** with commitments, backups, escalation, and a single AI coordinator that has the same memory on every device.
+THE BOSS Watch is more than a reminder app. Families, crews, coworkers, and caregiving teams share **Task Groups** with commitments, backups, escalation, and a single AI coordinator that has the same memory on every device.
 
 ## Features (MVP)
 
@@ -61,7 +61,7 @@ Invite code for the demo household: **`HOUSEHOLD`**
 iPhone / Android / Windows / Web
               │
               ▼
-     Pact app (Next.js)
+     THE BOSS Watch (Next.js)
               │
      Shared sync + auth
               │
@@ -92,9 +92,9 @@ npm run build
 npm run dist:win
 ```
 
-Installer output: `release/Pact Setup *.exe` (NSIS).
+Installer output: `release/THE-BOSS-Watch-Setup-*.exe` (NSIS).
 
-The desktop app opens the Pact UI in a native window. Point it at a hosted URL with:
+The desktop app opens THE BOSS Watch UI in a native window. Point it at a hosted URL with:
 
 ```bash
 set PACT_URL=https://your-deployment.vercel.app
@@ -103,7 +103,7 @@ npm run desktop
 
 ## Tailscale / private network (optional)
 
-Run Pact on a home server or desktop and share only with your family/crew:
+Run THE BOSS Watch on a home server or desktop and share only with your family/crew:
 
 ```bash
 npm run build && npm run start

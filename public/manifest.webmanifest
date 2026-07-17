@@ -1,6 +1,6 @@
 {
-  "name": "Pact — Shared Responsibility Assistant",
-  "short_name": "Pact",
+  "name": "THE BOSS Watch — Shared Responsibility Assistant",
+  "short_name": "BOSS Watch",
   "description": "Coordinate shared tasks with one group AI",
   "start_url": "/dashboard",
   "display": "standalone",

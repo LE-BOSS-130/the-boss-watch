@@ -13,7 +13,7 @@ function createWindow() {
     height: 860,
     minWidth: 900,
     minHeight: 600,
-    title: "Pact",
+    title: "THE BOSS Watch",
     backgroundColor: "#07090c",
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),

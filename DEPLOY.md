@@ -1,4 +1,4 @@
-# Deploying Pact
+# Deploying THE BOSS Watch
 
 ## Local / desktop (recommended for MVP multi-user on one LAN)
 
@@ -17,15 +17,15 @@ npm run build && npm run start
 
 ```bash
 npm run dist:win
-# → release/Pact-Setup-0.1.0.exe
+# → release/THE-BOSS-Watch-Setup-0.1.0.exe
 ```
 
-The desktop shell opens the Pact UI. By default it loads `http://localhost:3000`.  
+The desktop shell opens THE BOSS Watch UI. By default it loads `http://localhost:3000`.  
 To point the desktop app at a hosted backend:
 
 ```bat
 set PACT_URL=https://your-app.vercel.app
-Pact.exe
+"THE BOSS Watch.exe"
 ```
 
 Or set `PACT_URL` before `npm run desktop`.
@@ -76,7 +76,8 @@ npx prisma db push
 
 ## GitHub
 
-Repo: https://github.com/LE-BOSS-130/pact
+Repo: https://github.com/LE-BOSS-130/pact  
+(Product name: **THE BOSS Watch**)
 
 ```bash
 git push origin master
