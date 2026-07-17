@@ -19,7 +19,7 @@ THE BOSS Watch is more than a reminder app. Families, crews, coworkers, and care
 
 ```bash
 # Requirements: Node.js 20+
-cd pact
+cd the-boss-watch
 cp .env.example .env
 # Optional: set XAI_API_KEY from https://console.x.ai
 
