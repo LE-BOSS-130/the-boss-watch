@@ -12,6 +12,6 @@ if not exist "prisma\dev.db" (
 )
 echo.
 echo Starting THE BOSS Watch at http://localhost:3000
-echo Demo logins: joe@pact.local / password123
+echo Demo logins: joe@bosswatch.local / password123
 echo.
 call npm run dev
