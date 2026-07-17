@@ -2,7 +2,7 @@
   "name": "the-boss-watch",
   "version": "0.1.0",
   "private": true,
-  "description": "THE BOSS Watch — shared responsibility assistant that coordinates people, tasks, and one group AI",
+  "description": "THE BOSS Watch - shared responsibility assistant for people, tasks, and group AI",
   "author": "LE-BOSS-130",
   "main": "electron/main.js",
   "scripts": {
