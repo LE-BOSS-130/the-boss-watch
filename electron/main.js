@@ -2,7 +2,10 @@ const { app, BrowserWindow, shell, Notification } = require("electron");
 const path = require("path");
 
 const isDev = !app.isPackaged;
-const START_URL = process.env.PACT_URL || (isDev ? "http://localhost:3000" : "http://localhost:3000");
+const START_URL =
+  process.env.BOSS_WATCH_URL ||
+  process.env.PACT_URL ||
+  "http://localhost:3000";
 
 /** @type {BrowserWindow | null} */
 let mainWindow = null;

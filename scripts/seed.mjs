@@ -11,30 +11,30 @@ async function main() {
   const passwordHash = await bcrypt.hash("password123", 10);
 
   const joe = await prisma.user.upsert({
-    where: { email: "joe@pact.local" },
+    where: { email: "joe@bosswatch.local" },
     update: {},
     create: {
-      email: "joe@pact.local",
+      email: "joe@bosswatch.local",
       name: "Joe",
       passwordHash,
     },
   });
 
   const matthew = await prisma.user.upsert({
-    where: { email: "matthew@pact.local" },
+    where: { email: "matthew@bosswatch.local" },
     update: {},
     create: {
-      email: "matthew@pact.local",
+      email: "matthew@bosswatch.local",
       name: "Matthew",
       passwordHash,
     },
   });
 
   const sam = await prisma.user.upsert({
-    where: { email: "sam@pact.local" },
+    where: { email: "sam@bosswatch.local" },
     update: {},
     create: {
-      email: "sam@pact.local",
+      email: "sam@bosswatch.local",
       name: "Sam",
       passwordHash,
     },
@@ -126,9 +126,9 @@ async function main() {
   });
 
   console.log("Seeded demo data:");
-  console.log("  joe@pact.local / password123 (Owner)");
-  console.log("  matthew@pact.local / password123 (Member)");
-  console.log("  sam@pact.local / password123 (Coordinator)");
+  console.log("  joe@bosswatch.local / password123 (Owner)");
+  console.log("  matthew@bosswatch.local / password123 (Member)");
+  console.log("  sam@bosswatch.local / password123 (Coordinator)");
   console.log("  Invite code: HOUSEHOLD");
   console.log("  Group:", group.id);
 }

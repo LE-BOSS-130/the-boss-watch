@@ -35,9 +35,9 @@ Open [http://localhost:3000](http://localhost:3000).
 
 | Email | Password | Role |
 |-------|----------|------|
-| `joe@pact.local` | `password123` | Owner |
-| `matthew@pact.local` | `password123` | Member |
-| `sam@pact.local` | `password123` | Coordinator |
+| `joe@bosswatch.local` | `password123` | Owner |
+| `matthew@bosswatch.local` | `password123` | Member |
+| `sam@bosswatch.local` | `password123` | Coordinator |
 
 Invite code for the demo household: **`HOUSEHOLD`**
 
@@ -97,7 +97,7 @@ Installer output: `release/THE-BOSS-Watch-Setup-*.exe` (NSIS).
 The desktop app opens THE BOSS Watch UI in a native window. Point it at a hosted URL with:
 
 ```bash
-set PACT_URL=https://your-deployment.vercel.app
+set BOSS_WATCH_URL=https://your-deployment.vercel.app
 npm run desktop
 ```
 

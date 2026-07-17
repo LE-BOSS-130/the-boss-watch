@@ -15,7 +15,7 @@
     "db:studio": "prisma studio",
     "postinstall": "prisma generate",
     "desktop": "electron .",
-    "desktop:dev": "concurrently -k \"next dev\" \"wait-on http://localhost:3000 && cross-env PACT_URL=http://localhost:3000 electron .\"",
+    "desktop:dev": "concurrently -k \"next dev\" \"wait-on http://localhost:3000 && cross-env BOSS_WATCH_URL=http://localhost:3000 electron .\"",
     "dist:win": "npm run build && electron-builder --win nsis",
     "dist:dir": "npm run build && electron-builder --win --dir"
   },

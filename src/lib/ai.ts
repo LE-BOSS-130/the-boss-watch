@@ -142,7 +142,7 @@ export type BossAction =
   | { type: "add_rule"; name: string; ruleText: string };
 
 export function parseBossActions(text: string): { clean: string; actions: BossAction[] } {
-  const match = text.match(/```(?:boss-actions|pact-actions)\s*([\s\S]*?)```/i);
+  const match = text.match(/```boss-actions\s*([\s\S]*?)```/i);
   if (!match) return { clean: text.trim(), actions: [] };
   try {
     const json = JSON.parse(match[1].trim());

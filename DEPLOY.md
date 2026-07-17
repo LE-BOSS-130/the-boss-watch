@@ -24,11 +24,11 @@ The desktop shell opens THE BOSS Watch UI. By default it loads `http://localhost
 To point the desktop app at a hosted backend:
 
 ```bat
-set PACT_URL=https://your-app.vercel.app
+set BOSS_WATCH_URL=https://your-app.vercel.app
 "THE BOSS Watch.exe"
 ```
 
-Or set `PACT_URL` before `npm run desktop`.
+Or set `BOSS_WATCH_URL` before `npm run desktop`.
 
 ### Private network with Tailscale
 
